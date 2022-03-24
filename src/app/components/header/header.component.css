@@ -1,0 +1,28 @@
+.desktop nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.desktop nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.desktop nav ul li a {
+  /* color: white; */
+  padding: 1vh 2vw;
+  text-decoration: none;
+}
+
+.logo {
+  height: 10vh;
+}
+
+.navbar-toggler-icon {
+  color: white;
+}
+
+.navbar-toggler img {
+  width: 8vw;
+}

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-10">
+    <h1 class="m-3 text-center">Busca los tweets de un tema</h1>
+  </div>
+  <div class="col-2">
+    <img src="../../../assets/bird_3.jpg" alt="" class="w-50" />
+  </div>
+</div>
+<section class="p-3 p-lg-0">
+  <div class="row">
+    <div class="bg-success text-light col-12 col-md-4">
+      <form #paramsForm="ngForm" (ngSubmit)="sendParams(paramsForm.value)">
+        <div class="mx-4 my-2">
+          <label for="keywords" class="form-label">Palabras clave:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="keywords"
+            required
+            ngModel
+          />
+        </div>
+        <div class="mx-4 my-2">
+          <label for="keywords" class="form-label">Cantidad de tweets:</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amount"
+            required
+            ngModel
+          />
+        </div>
+        <button class="mx-5 my-2">Buscar</button>
+      </form>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <div class="container">
+        <div *ngIf="tweetsArr.length">
+          <div class="table-responsive">
+            <table
+              border="1"
+              class="table table-hover table-striped table-bordered"
+            >
+              <thead class="thead-primary">
+                <tr>
+                  <th class="d-none d-md-block">#</th>
+                  <th>Usuario</th>
+                  <th class="d-none d-md-block">Cantidad de corazones</th>
+                  <th class="d-none d-md-block">Cantidad de retweets</th>
+                  <th>Contenido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tweet of tweetsArr; index as i">
+                  <td class="d-none d-md-block"># {{ i + 1 }}</td>
+                  <td>{{ tweet.user }}</td>
+                  <td class="d-none d-md-block">{{ tweet.favorites }}</td>
+                  <td class="d-none d-md-block">{{ tweet.retweeted }}</td>
+                  <td>{{ tweet.text }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
